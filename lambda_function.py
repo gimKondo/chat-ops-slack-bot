@@ -2,15 +2,19 @@ import json
 import os
 import logging
 import urllib.request
+
 # <Required Enviroment Varialbes>
 # - SLACK_VERIFY_TOKEN: Bot's "Verification Token" at "Basic Information"
 # - SLACK_OAUTH_ACCESS_TOKEN: Bot's "OAuth Access Token" at "Install App"
 # - SLACK_BOT_USER_ACCESS_TOKEN: Bot's "Bot User OAuth Access Token" at "Install App"
+
 SLACK_VERIFY_TOKEN = os.environ['SLACK_VERIFY_TOKEN']
 SLACK_OAUTH_ACCESS_TOKEN = os.environ['SLACK_OAUTH_ACCESS_TOKEN']
 SLACK_BOT_USER_ACCESS_TOKEN = os.environ['SLACK_BOT_USER_ACCESS_TOKEN']
+
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
+
 def lambda_handler(event, context):
     logger.info("Event: " + str(event))
     body = json.loads(event["body"])
